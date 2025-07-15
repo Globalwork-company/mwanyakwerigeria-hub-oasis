@@ -54,14 +54,14 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				vibrant: {
-					green: 'hsl(142, 76%, 36%)',
-					'green-light': 'hsl(142, 70%, 45%)',
-					orange: 'hsl(25, 85%, 45%)',
-					'orange-light': 'hsl(25, 80%, 55%)',
-					blue: 'hsl(204, 94%, 55%)',
-					'blue-light': 'hsl(204, 90%, 65%)',
-					cream: 'hsl(45, 25%, 98%)',
-					gold: 'hsl(45, 90%, 60%)'
+					green: '#22c55e',
+					'green-light': '#4ade80',
+					orange: '#f97316',
+					'orange-light': '#fb923c',
+					blue: '#3b82f6',
+					'blue-light': '#60a5fa',
+					cream: '#fefce8',
+					gold: '#eab308'
 				}
 			},
 			borderRadius: {
