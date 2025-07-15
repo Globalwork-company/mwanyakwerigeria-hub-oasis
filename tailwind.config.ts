@@ -53,14 +53,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				earth: {
-					green: '#2D5016',
-					'green-light': '#4A7729',
-					brown: '#8B4513',
-					'brown-light': '#A0522D',
-					cream: '#F5F5DC',
-					sky: '#87CEEB',
-					'sky-dark': '#5F9EA0'
+				vibrant: {
+					green: 'hsl(142, 76%, 36%)',
+					'green-light': 'hsl(142, 70%, 45%)',
+					orange: 'hsl(25, 85%, 45%)',
+					'orange-light': 'hsl(25, 80%, 55%)',
+					blue: 'hsl(204, 94%, 55%)',
+					'blue-light': 'hsl(204, 90%, 65%)',
+					cream: 'hsl(45, 25%, 98%)',
+					gold: 'hsl(45, 90%, 60%)'
 				}
 			},
 			borderRadius: {
