@@ -76,10 +76,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center">
+        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center relative">
           <p className="text-primary-foreground/90">
             © 2024 Mwanyakwerigeria. All rights reserved. Built with ❤️ for our community.
           </p>
+          {/* Secret Admin Button - appears as a small dot */}
+          <Link 
+            to="/admin" 
+            className="absolute bottom-0 right-0 w-2 h-2 bg-primary-foreground/20 rounded-full hover:bg-primary-foreground/40 transition-colors"
+            title="Admin"
+          />
         </div>
       </div>
     </footer>
