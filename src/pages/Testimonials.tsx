@@ -61,32 +61,32 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-earth-green to-earth-green-light text-white section-padding">
+      <section className="bg-gradient-to-r from-primary to-secondary text-primary-foreground section-padding">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
             What Our Customers Say
           </h1>
-          <p className="text-xl text-green-100 max-w-3xl mx-auto">
+          <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
             Don't just take our word for it - hear from the amazing people we're proud to serve every day.
           </p>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-earth-cream dark:bg-gray-800">
+      <section className="section-padding bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg">
-                <div className="w-16 h-16 bg-earth-green rounded-full flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="h-8 w-8 text-white" />
+              <div key={index} className="text-center bg-card rounded-lg p-8 shadow-lg">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
-                <div className="text-3xl font-bold text-earth-green dark:text-earth-green-light mb-2">
+                <div className="text-3xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 dark:text-gray-300 font-medium">
+                <div className="text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -98,15 +98,15 @@ const Testimonials = () => {
       {/* Testimonials Grid */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-earth-green dark:text-earth-green-light">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary">
             Customer Stories
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-200">
+              <div key={testimonial.id} className="bg-card rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-200">
                 <div className="flex items-center mb-4">
-                  <Quote className="h-8 w-8 text-earth-green mr-3" />
+                  <Quote className="h-8 w-8 text-primary mr-3" />
                   <div className="flex">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />
@@ -114,22 +114,22 @@ const Testimonials = () => {
                   </div>
                 </div>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   "{testimonial.text}"
                 </p>
                 
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+                <div className="border-t border-border pt-4">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h4 className="font-semibold text-gray-800 dark:text-gray-200">
+                      <h4 className="font-semibold text-foreground">
                         {testimonial.name}
                       </h4>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                      <p className="text-sm text-muted-foreground">
                         {testimonial.location}
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs bg-earth-green text-white px-2 py-1 rounded-full">
+                      <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full">
                         {testimonial.service}
                       </span>
                     </div>
@@ -142,47 +142,47 @@ const Testimonials = () => {
       </section>
 
       {/* Community Impact */}
-      <section className="section-padding bg-earth-cream dark:bg-gray-800">
+      <section className="section-padding bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-earth-green dark:text-earth-green-light">
+              <h2 className="text-3xl font-bold mb-6 text-primary">
                 More Than Just Business
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-lg text-muted-foreground mb-6">
                 Our customers aren't just customers - they're our neighbors, our friends, and our extended family. 
                 Every review, every smile, and every "thank you" reminds us why we started this journey.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 mb-8">
+              <p className="text-muted-foreground mb-8">
                 From the early morning commuters who stop for chai, to the families who bring their cars for weekend washes, 
                 to the travelers who fuel up for long journeys - each person has a story, and we're honored to be part of it.
               </p>
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Heart className="h-6 w-6 text-earth-green" />
-                  <span className="text-gray-700 dark:text-gray-300">Personal care for every customer</span>
+                  <Heart className="h-6 w-6 text-primary" />
+                  <span className="text-foreground">Personal care for every customer</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Users className="h-6 w-6 text-earth-green" />
-                  <span className="text-gray-700 dark:text-gray-300">Building lasting community relationships</span>
+                  <Users className="h-6 w-6 text-primary" />
+                  <span className="text-foreground">Building lasting community relationships</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Star className="h-6 w-6 text-earth-green" />
-                  <span className="text-gray-700 dark:text-gray-300">Consistent quality in everything we do</span>
+                  <Star className="h-6 w-6 text-primary" />
+                  <span className="text-foreground">Consistent quality in everything we do</span>
                 </div>
               </div>
             </div>
             
-            <div className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg">
+            <div className="bg-card rounded-lg p-8 shadow-lg">
               <div className="text-center mb-6">
-                <Quote className="h-12 w-12 text-earth-green mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-earth-green dark:text-earth-green-light mb-4">
+                <Quote className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-primary mb-4">
                   Recent Review
                 </h3>
               </div>
               
-              <blockquote className="text-gray-600 dark:text-gray-300 text-lg italic text-center mb-6">
+              <blockquote className="text-muted-foreground text-lg italic text-center mb-6">
                 "Mwanyakwerigeria is more than a business - it's a community hub where everyone feels welcome. 
                 The owner's vision of serving with love shows in every interaction."
               </blockquote>
@@ -193,8 +193,8 @@ const Testimonials = () => {
                     <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />
                   ))}
                 </div>
-                <p className="font-semibold text-gray-800 dark:text-gray-200">Chief Local Administrator</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Community Leader</p>
+                <p className="font-semibold text-foreground">Chief Local Administrator</p>
+                <p className="text-sm text-muted-foreground">Community Leader</p>
               </div>
             </div>
           </div>
@@ -202,26 +202,26 @@ const Testimonials = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="section-padding bg-earth-green text-white">
+      <section className="section-padding bg-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Join Our Happy Customers</h2>
-          <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
             Experience the warmth, quality, and community spirit that makes Mwanyakwerigeria special. 
             We can't wait to serve you and add your story to our growing family of satisfied customers.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-earth-green px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
+            <button className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
               Visit Us Today
             </button>
-            <button className="bg-earth-brown text-white px-8 py-3 rounded-lg font-semibold hover:bg-earth-brown-light transition-colors duration-200">
+            <button className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors duration-200">
               Share Your Experience
             </button>
           </div>
           
           <div className="mt-8 text-center">
-            <p className="text-green-100 text-sm">
-              📍 Find us on the main road • 📞 +254 7xx xxx xxx • ⏰ Mon-Sat: 6am-9pm
+            <p className="text-primary-foreground/90 text-sm">
+              📍 Etago-Kenyenya Road, 300m from Etago Stage • 📞 +254 7xx xxx xxx • ⏰ Mon-Sat: 6am-9pm
             </p>
           </div>
         </div>
