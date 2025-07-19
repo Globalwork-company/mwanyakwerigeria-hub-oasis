@@ -42,7 +42,7 @@ const Admin = () => {
     }
   };
 
-  const handleFileUpload = (key: string, file: File) => {
+  const handleFileUpload = async (key: string, file: File) => {
     if (!file.type.startsWith('image/')) {
       toast({
         title: "Invalid File",
@@ -52,46 +52,55 @@ const Admin = () => {
       return;
     }
 
-    // Create object URL for preview
-    const objectUrl = URL.createObjectURL(file);
-    
-    // Update the image links state
-    if (key.startsWith('gallery-')) {
-      const index = parseInt(key.split('-')[1]);
-      setImageLinks(prev => ({
-        ...prev,
-        galleryImages: {
-          ...prev.galleryImages,
-          [index]: objectUrl
+    try {
+      // Create a reader to convert file to data URL for immediate preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const dataUrl = e.target?.result as string;
+        
+        // Update the image links state with data URL for immediate preview
+        if (key.startsWith('gallery-')) {
+          const index = parseInt(key.split('-')[1]);
+          setImageLinks(prev => ({
+            ...prev,
+            galleryImages: {
+              ...prev.galleryImages,
+              [index]: dataUrl
+            }
+          }));
+        } else {
+          setImageLinks(prev => ({
+            ...prev,
+            [key]: dataUrl
+          }));
         }
-      }));
-    } else {
-      setImageLinks(prev => ({
+      };
+      
+      reader.readAsDataURL(file);
+
+      // Store the file for later processing
+      setUploadedFiles(prev => ({
         ...prev,
-        [key]: objectUrl
+        [key]: file
       }));
+
+      toast({
+        title: "Image Uploaded",
+        description: `${file.name} has been uploaded successfully`,
+      });
+    } catch (error) {
+      toast({
+        title: "Upload Error",
+        description: "Failed to process the image file",
+        variant: "destructive",
+      });
     }
-
-    // Store the file for later processing
-    setUploadedFiles(prev => ({
-      ...prev,
-      [key]: file
-    }));
-
-    toast({
-      title: "Image Uploaded",
-      description: `${file.name} has been uploaded successfully`,
-    });
   };
 
   const handleRemoveImage = (key: string) => {
-    // Revoke object URL to prevent memory leaks
+    // Clear the image from state
     if (key.startsWith('gallery-')) {
       const index = parseInt(key.split('-')[1]);
-      const currentUrl = imageLinks.galleryImages[index];
-      if (currentUrl && currentUrl.startsWith('blob:')) {
-        URL.revokeObjectURL(currentUrl);
-      }
       setImageLinks(prev => ({
         ...prev,
         galleryImages: {
@@ -100,10 +109,6 @@ const Admin = () => {
         }
       }));
     } else {
-      const currentUrl = imageLinks[key as keyof typeof imageLinks];
-      if (typeof currentUrl === 'string' && currentUrl.startsWith('blob:')) {
-        URL.revokeObjectURL(currentUrl);
-      }
       setImageLinks(prev => ({
         ...prev,
         [key]: ''
@@ -115,6 +120,11 @@ const Admin = () => {
       ...prev,
       [key]: null
     }));
+
+    toast({
+      title: "Image Removed",
+      description: "Image has been removed successfully",
+    });
   };
 
   const handleSave = () => {
